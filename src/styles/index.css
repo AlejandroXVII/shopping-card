@@ -129,16 +129,18 @@ body {
 
 :root {
 	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-	--clr: 45;
+	--clr: 25;
 	--clr-principal: hsl(var(--clr), 100%, 0%);
 	--clr-secondary: hsl(var(--clr), 100%, 50%);
 	--clr-tertiary: hsl(var(--clr), 0%, 98%);
 
+	--clr-principal-bright: hsl(var(--clr), 0%, 15%);
 	--clr-secondary-bright: hsl(var(--clr), 100%, 70%);
 	--clr-tertiary-bright: hsl(var(--clr), 100%, 100%);
 
-	--clr-secondary-dark: hsl(var(--clr), 100%, 35%);
-	--clr-tertiary-dark: hsl(var(--clr), 0%, 60%);
+	--clr-secondary-dark: hsl(var(--clr), 100%, 15%);
+	--clr-tertiary-dark: hsl(var(--clr), 0%, 25%);
+	--clr-tertiary-light-dark: hsl(var(--clr), 0%, 90%);
 
 	--clr-accept: hsl(151, 100%, 65%);
 
@@ -155,6 +157,12 @@ body {
 body {
 	max-width: 100dvw;
 	min-height: 100dvh;
+	> div {
+		max-width: inherit;
+		min-height: inherit;
+		display: grid;
+		grid-template-rows: auto 1fr;
+	}
 	.navigationBar {
 		background-color: var(--clr-principal);
 		box-shadow: var(--medium-shadow);
@@ -193,6 +201,10 @@ body {
 				color: var(--clr-secondary);
 			}
 		}
+		button:hover,
+		button:focus {
+			outline: none;
+		}
 		> * > *:last-child {
 			justify-self: end;
 			margin: 0;
@@ -208,25 +220,21 @@ body {
 			}
 		}
 	}
-	header {
-	}
-	main {
-	}
-	footer {
-	}
 	* {
 		svg {
 			height: 2rem;
 		}
 		button {
 			color: var(--clr-principal);
-			background-color: var(--clr-tertiary-dark);
+			background-color: var(--clr-secondary);
 			padding: 0.5rem 1rem;
 			margin: 0.5rem;
 			font-size: 1rem;
 		}
-		button:hover {
+		button:hover,
+		button:focus {
 			cursor: pointer;
+			outline: 2px solid var(--clr-principal);
 		}
 		.savedBtn {
 			background: var(--clr-accept);

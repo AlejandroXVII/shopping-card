@@ -1,11 +1,11 @@
-import { ShopIcon, CartIcon } from "./assets/icons";
+import { ShopIcon, CartIcon } from "../assets/icons";
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
 	return (
 		<div className="navigationBar">
 			<ShopIcon />
-			<h1>Shoppedia</h1>
+			<h1>Intrinsic</h1>
 			<nav>
 				<Link to="home">
 					<button>Home</button>

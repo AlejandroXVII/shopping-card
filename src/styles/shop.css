@@ -1,0 +1,37 @@
+.ShopContainer {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	.itemCard {
+		max-width: 320px;
+		box-shadow: var(--little-shadow);
+		background-color: var(--clr-tertiary-light-dark);
+		height: auto;
+		max-height: 580px;
+		display: grid;
+		grid-template-rows: auto 1f auto;
+		.imgContainer {
+			max-width: inherit;
+			height: 450px;
+			background: white;
+			display: flex;
+			justify-content: center;
+			align-content: center;
+			img {
+				position: relative;
+				width: calc(100% - 18px);
+				object-fit: contain;
+			}
+		}
+		.infoContainer {
+			padding: 1rem;
+			padding-bottom: 0;
+		}
+		.actionContainer {
+			align-self: end;
+			justify-self: center;
+			button {
+				margin: 0.5rem;
+			}
+		}
+	}
+}
