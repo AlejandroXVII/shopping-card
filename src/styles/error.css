@@ -1,0 +1,16 @@
+.error {
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	min-height: 95dvh;
+	color: var(--clr-tertiary-dark);
+	svg {
+		fill: var(--clr-tertiary-dark);
+		height: 5rem;
+	}
+	a {
+		color: rgb(63, 63, 63);
+	}
+}

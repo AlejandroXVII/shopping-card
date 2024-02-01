@@ -130,7 +130,7 @@ body {
 :root {
 	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 	--clr: 45;
-	--clr-principal: hsl(var(--clr), 100%, 5%);
+	--clr-principal: hsl(var(--clr), 100%, 0%);
 	--clr-secondary: hsl(var(--clr), 100%, 50%);
 	--clr-tertiary: hsl(var(--clr), 0%, 98%);
 
@@ -138,7 +138,7 @@ body {
 	--clr-tertiary-bright: hsl(var(--clr), 100%, 100%);
 
 	--clr-secondary-dark: hsl(var(--clr), 100%, 35%);
-	--clr-tertiary-dark: hsl(var(--clr), 0%, 92%);
+	--clr-tertiary-dark: hsl(var(--clr), 0%, 60%);
 
 	--clr-accept: hsl(151, 100%, 65%);
 
@@ -155,6 +155,59 @@ body {
 body {
 	max-width: 100dvw;
 	min-height: 100dvh;
+	.navigationBar {
+		background-color: var(--clr-principal);
+		box-shadow: var(--medium-shadow);
+		color: var(--clr-tertiary);
+		display: grid;
+		padding: 0 1rem;
+		grid-auto-flow: column;
+		grid-template-columns: auto auto 1fr auto;
+		align-items: center;
+		justify-items: center;
+		gap: 0.2rem;
+		svg {
+			height: 2.5rem;
+			margin: 0.5rem 0;
+			fill: var(--clr-tertiary);
+		}
+		h1 {
+			font-family: "Lexend", sans-serif;
+			font-weight: 700;
+		}
+		nav {
+			align-self: end;
+			height: auto;
+			button {
+				margin: 0 0.5rem;
+				background: transparent;
+				color: var(--clr-tertiary);
+				border-bottom: 3px solid var(--clr-tertiary);
+				padding: 0.5rem 1rem;
+				text-decoration: none;
+				font-weight: bold;
+			}
+			button:hover,
+			button:focus {
+				border-bottom: 3px solid var(--clr-secondary);
+				color: var(--clr-secondary);
+			}
+		}
+		> * > *:last-child {
+			justify-self: end;
+			margin: 0;
+			background-color: transparent;
+			svg {
+				margin: inherit;
+			}
+		}
+		> * > *:last-child:hover,
+		> * > *:last-child:focus {
+			svg {
+				fill: var(--clr-secondary);
+			}
+		}
+	}
 	header {
 	}
 	main {
@@ -162,9 +215,8 @@ body {
 	footer {
 	}
 	* {
-		div {
-			background-color: var(--clr-tertiary-bright);
-			box-shadow: var(--medium-shadow);
+		svg {
+			height: 2rem;
 		}
 		button {
 			color: var(--clr-principal);
@@ -174,7 +226,7 @@ body {
 			font-size: 1rem;
 		}
 		button:hover {
-			outline: 2px solid var(--clr-principal);
+			cursor: pointer;
 		}
 		.savedBtn {
 			background: var(--clr-accept);
