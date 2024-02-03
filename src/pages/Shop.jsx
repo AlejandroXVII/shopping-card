@@ -1,29 +1,23 @@
 import "../styles/shop.css";
+import { Card } from "../components/Card.jsx";
 
 const ShopPage = (prob) => {
 	return (
 		<div className="ShopContainer">
 			{prob.items.map((item) => (
-				<Card key={item.id} item={item} />
+				<Card
+					key={item.id}
+					item={item}
+					items={prob.items}
+					setCartItems={prob.setCartItems}
+					cartItems={prob.cartItems}
+					cartItemID={prob.cartItemID}
+					setCartItemID={prob.setCartItemID}
+					type="shop"
+				/>
 			))}
 		</div>
 	);
 };
 
-const Card = (prob) => {
-	return (
-		<div className="itemCard">
-			<div className="imgContainer">
-				<img src={prob.item.img} alt="" />
-			</div>
-			<div className="infoContainer">
-				<p className="title">{prob.item.title}</p>
-				<p className="price">{"$" + prob.item.price}</p>
-			</div>
-			<div className="actionContainer">
-				<button>Add to the Cart</button>
-			</div>
-		</div>
-	);
-};
 export { ShopPage };

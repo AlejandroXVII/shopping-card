@@ -1,10 +1,17 @@
-const CartPage = () => {
+import { Card } from "../components/Card.jsx";
+
+const CartPage = (prob) => {
 	return (
 		<div className="CartContainer">
-			<h1>HERE IS THE CART PAGE</h1>
-			<h1>HERE IS THE CART PAGE</h1>
-			<h1>HERE IS THE CART PAGE</h1>
-			<h1>HERE IS THE CART PAGE</h1>
+			{prob.cartItems.map((item) => (
+				<Card
+					key={item.cartItemID}
+					item={item}
+					cartItems={prob.cartItems}
+					setCartItems={prob.setCartItems}
+					type="cart"
+				/>
+			))}
 		</div>
 	);
 };

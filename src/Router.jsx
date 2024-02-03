@@ -9,6 +9,8 @@ import { useEffect, useState } from "react";
 
 const Router = () => {
 	const [items, setItems] = useState([]);
+	const [cartItems, setCartItems] = useState([]);
+	const [cartItemID, setCartItemID] = useState(1);
 	async function fetchLoop(uri, amount) {
 		const itemArray = [];
 		for (let i = 1; i <= amount; i++) {
@@ -42,15 +44,30 @@ const Router = () => {
 				},
 				{
 					path: "shop",
-					element: <ShopPage id="shop" items={items} />,
+					element: (
+						<ShopPage
+							id="shop"
+							items={items}
+							cartItems={cartItems}
+							setCartItems={setCartItems}
+							cartItemID={cartItemID}
+							setCartItemID={setCartItemID}
+						/>
+					),
+				},
+				{
+					path: "Cart",
+					element: (
+						<CartPage
+							id="cart"
+							cartItems={cartItems}
+							setCartItems={setCartItems}
+						/>
+					),
 				},
 				{
 					path: "about",
 					element: <AboutPage />,
-				},
-				{
-					path: "Cart",
-					element: <CartPage />,
 				},
 			],
 		},

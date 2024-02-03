@@ -170,7 +170,7 @@ body {
 		display: grid;
 		padding: 0 1rem;
 		grid-auto-flow: column;
-		grid-template-columns: auto auto 1fr auto;
+		grid-template-columns: auto 1fr auto;
 		align-items: center;
 		justify-items: center;
 		gap: 0.2rem;
@@ -186,8 +186,11 @@ body {
 		nav {
 			align-self: end;
 			height: auto;
+			display: flex;
+			gap: 0.5rem;
+			flex-wrap: wrap;
 			button {
-				margin: 0 0.5rem;
+				margin: 0;
 				background: transparent;
 				color: var(--clr-tertiary);
 				border-bottom: 3px solid var(--clr-tertiary);
@@ -205,9 +208,14 @@ body {
 		button:focus {
 			outline: none;
 		}
+		> div {
+			display: flex;
+			align-items: center;
+		}
 		> * > *:last-child {
 			justify-self: end;
 			margin: 0;
+			padding: 0;
 			background-color: transparent;
 			svg {
 				margin: inherit;
@@ -238,6 +246,17 @@ body {
 		}
 		.savedBtn {
 			background: var(--clr-accept);
+		}
+	}
+}
+
+@media (max-width: 580px) {
+	.navigationBar {
+		h1 {
+			display: none;
+		}
+		nav {
+			margin: 0;
 		}
 	}
 }
