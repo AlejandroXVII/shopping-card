@@ -106,8 +106,12 @@ const ShopButtons = (prob) => {
 const CartButtons = (prob) => {
 	function removeItemToTheCart(e) {
 		console.log(prob.cartItems);
+		console.log(typeof e.target.id);
+		console.log(typeof prob.cartItems[0].cartItemID);
 		prob.setCartItems(
-			prob.cartItems.filter((item) => e.target.id !== item.cartItemID)
+			prob.cartItems.filter(
+				(item) => Number(e.target.id) !== item.cartItemID
+			)
 		);
 	}
 	return (
