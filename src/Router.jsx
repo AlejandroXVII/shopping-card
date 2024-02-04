@@ -11,6 +11,8 @@ const Router = () => {
 	const [items, setItems] = useState([]);
 	const [cartItems, setCartItems] = useState([]);
 	const [cartItemID, setCartItemID] = useState(1);
+	const [numCartItems, setNumCartItems] = useState(0);
+	const [totalCart, setTotalCart] = useState(0);
 	async function fetchLoop(uri, amount) {
 		const itemArray = [];
 		for (let i = 1; i <= amount; i++) {
@@ -35,12 +37,12 @@ const Router = () => {
 	const router = createBrowserRouter([
 		{
 			path: "/",
-			element: <App />,
+			element: <App numCartItems={numCartItems} />,
 			errorElement: <ErrorPage />,
 			children: [
 				{
 					path: "home",
-					element: <HomePage />,
+					element: <HomePage items={items} />,
 				},
 				{
 					path: "shop",
@@ -52,6 +54,10 @@ const Router = () => {
 							setCartItems={setCartItems}
 							cartItemID={cartItemID}
 							setCartItemID={setCartItemID}
+							totalCart={totalCart}
+							setTotalCart={setTotalCart}
+							numCartItems={numCartItems}
+							setNumCartItems={setNumCartItems}
 						/>
 					),
 				},
@@ -62,6 +68,10 @@ const Router = () => {
 							id="cart"
 							cartItems={cartItems}
 							setCartItems={setCartItems}
+							totalCart={totalCart}
+							setTotalCart={setTotalCart}
+							numCartItems={numCartItems}
+							setNumCartItems={setNumCartItems}
 						/>
 					),
 				},

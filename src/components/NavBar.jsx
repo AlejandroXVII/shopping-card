@@ -1,7 +1,7 @@
 import { ShopIcon, CartIcon } from "../assets/icons";
 import { Link } from "react-router-dom";
 
-const NavBar = () => {
+const NavBar = (prob) => {
 	return (
 		<div className="navigationBar">
 			<div>
@@ -22,6 +22,7 @@ const NavBar = () => {
 			<Link to="cart">
 				<button>
 					<CartIcon />
+					<p>{prob.numCartItems}</p>
 				</button>
 			</Link>
 		</div>

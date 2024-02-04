@@ -12,13 +12,22 @@ const Card = (prob) => {
 			{ ...itemToAdd, amount, cartItemID },
 		]);
 		prob.setCartItemID(prob.cartItemID + 1);
-		//console.log(prob.cartItems[prob.cartItems.length - 1].cartItemID);
+		prob.setNumCartItems(prob.numCartItems + amount);
+		prob.setTotalCart(prob.totalCart + itemToAdd.price * amount);
 	}
 	return (
 		<div className="itemCard">
 			<div className="imgContainer">
 				<img src={prob.item.img} alt="" />
-				<p className="price">{"$" + prob.item.price}</p>
+				{prob.type === "shop" ? (
+					<p className="price">{"$" + prob.item.price}</p>
+				) : prob.type === "cart" ? (
+					<p className="price">
+						{prob.item.amount +
+							"pcs total $" +
+							prob.item.price * prob.item.amount}
+					</p>
+				) : null}
 			</div>
 			<div className="infoContainer">
 				<p className="title">{prob.item.title}</p>
@@ -31,13 +40,17 @@ const Card = (prob) => {
 						setAmount={setAmount}
 						addItemToTheCart={addItemToTheCart}
 					/>
-				) : (
+				) : prob.type === "cart" ? (
 					<CartButtons
 						item={prob.item}
 						cartItems={prob.cartItems}
 						setCartItems={prob.setCartItems}
+						totalCart={prob.totalCart}
+						setTotalCart={prob.setTotalCart}
+						numCartItems={prob.numCartItems}
+						setNumCartItems={prob.setNumCartItems}
 					/>
-				)}
+				) : null}
 			</div>
 		</div>
 	);
@@ -105,14 +118,17 @@ const ShopButtons = (prob) => {
 
 const CartButtons = (prob) => {
 	function removeItemToTheCart(e) {
-		console.log(prob.cartItems);
-		console.log(typeof e.target.id);
-		console.log(typeof prob.cartItems[0].cartItemID);
+		const item = prob.cartItems.find(
+			(item) => Number(e.target.id) === item.cartItemID
+		);
+		console.log(item);
 		prob.setCartItems(
 			prob.cartItems.filter(
 				(item) => Number(e.target.id) !== item.cartItemID
 			)
 		);
+		prob.setNumCartItems(prob.numCartItems - item.amount);
+		prob.setTotalCart(prob.totalCart - item.price * item.amount);
 	}
 	return (
 		<>

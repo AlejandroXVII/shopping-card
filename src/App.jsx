@@ -1,10 +1,10 @@
 import { Outlet } from "react-router-dom";
 import { NavBar } from "./components/NavBar";
 
-const App = () => {
+const App = (prob) => {
 	return (
 		<>
-			<NavBar />
+			<NavBar numCartItems={prob.numCartItems} />
 			<Outlet />
 		</>
 	);

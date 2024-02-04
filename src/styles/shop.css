@@ -5,3 +5,14 @@
 	gap: 1rem;
 	justify-items: center;
 }
+
+.paymentContainer {
+	grid-column: 1/-1;
+	background-color: var(--clr-tertiary-light-dark);
+	display: flex;
+	gap: 0.5rem;
+	flex-flow: column;
+	justify-content: center;
+	min-width: 280px;
+	padding: 0 1rem;
+}

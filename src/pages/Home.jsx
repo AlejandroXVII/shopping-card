@@ -1,7 +1,8 @@
 import prinSrc from "../assets/principal.jpg";
 import "../styles/home.css";
+import { Card } from "../components/Card.jsx";
 
-const HomePage = () => {
+const HomePage = (prob) => {
 	return (
 		<div className="flexor">
 			<div className="homeContainer container">
@@ -16,6 +17,11 @@ const HomePage = () => {
 				</p>
 				<button>Show now</button>
 				<img src={prinSrc} alt="" />
+				<div className="ShopContainer">
+					{prob.items.map((item) => (
+						<Card key={item.id} item={item} type="home" />
+					))}
+				</div>
 			</div>
 		</div>
 	);

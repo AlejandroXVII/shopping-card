@@ -13,6 +13,10 @@ const ShopPage = (prob) => {
 					cartItems={prob.cartItems}
 					cartItemID={prob.cartItemID}
 					setCartItemID={prob.setCartItemID}
+					totalCart={prob.totalCart}
+					setTotalCart={prob.setTotalCart}
+					numCartItems={prob.numCartItems}
+					setNumCartItems={prob.setNumCartItems}
 					type="shop"
 				/>
 			))}
