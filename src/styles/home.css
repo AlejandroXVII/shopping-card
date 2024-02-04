@@ -12,7 +12,6 @@
 	justify-content: center;
 	img {
 		height: 50dvb;
-		filter: grayscale();
 	}
 	h1 {
 		color: var(--clr-principal-bright);
@@ -21,5 +20,23 @@
 	p {
 		max-width: 75ch;
 		color: var(--clr-tertiary-dark);
+	}
+}
+.carousel {
+	max-width: 95vw;
+	.carouselIMG {
+		padding: 1rem 0;
+		img {
+			object-fit: contain;
+		}
+	}
+	.carousel-status {
+		display: none;
+	}
+	.control-arrow {
+		filter: invert();
+	}
+	.control-dots {
+		filter: invert();
 	}
 }

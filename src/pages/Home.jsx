@@ -1,6 +1,8 @@
 import prinSrc from "../assets/principal.jpg";
 import "../styles/home.css";
 import { Card } from "../components/Card.jsx";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from "react-responsive-carousel";
 
 const HomePage = (prob) => {
 	return (
@@ -16,11 +18,20 @@ const HomePage = (prob) => {
 					tellus vel nisl porttitor.
 				</p>
 				<button>Show now</button>
-				<img src={prinSrc} alt="" />
-				<div className="ShopContainer">
-					{prob.items.map((item) => (
-						<Card key={item.id} item={item} type="home" />
-					))}
+				<div className="carousel">
+					<Carousel
+						showThumbs={false}
+						centerMode={true}
+						centerSlidePercentage={30}
+						autoPlay={true}
+						infiniteLoop={true}
+					>
+						{prob.items.map((item) => (
+							<div key={item.id} className="carouselIMG">
+								<img src={item.img} alt="" />
+							</div>
+						))}
+					</Carousel>
 				</div>
 			</div>
 		</div>

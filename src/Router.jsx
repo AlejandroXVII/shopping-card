@@ -32,7 +32,7 @@ const Router = () => {
 		setItems(itemArray);
 	}
 	useEffect(() => {
-		fetchLoop("https://fakestoreapi.com/products", 2);
+		fetchLoop("https://fakestoreapi.com/products", 5);
 	}, []);
 	const router = createBrowserRouter([
 		{
